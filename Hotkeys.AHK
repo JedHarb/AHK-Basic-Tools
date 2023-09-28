@@ -29,4 +29,7 @@ F4::
 return
 ; If the tool is already open, it just starts a new snip from there.
 
+F2::Click % GetKeyState("LButton") ? "Up" : "Down" ; F2 clicks down the mouse. Press again to release click (drag and drop)
+F3::Click % " right " (GetKeyState("RButton") ? "Up" : "Down") ; Same thing for F3 and right click.
+
 ; More to come....

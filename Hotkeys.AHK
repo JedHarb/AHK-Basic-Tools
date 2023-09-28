@@ -8,17 +8,24 @@ SetDefaultMouseSpeed, 0
 
 ; End auto-execute section
 
-
-; While holding left click, do a right click -- press Enter with your mouse!
-~LButton & RButton::Send, {Enter}{LButton Up}
-; After using this for ahwile, I don't know how I lived without it.
+~LButton & RButton::Send, {Enter}{LButton Up} ; While holding left click, do a right click -- press Enter with your mouse!
 
 ; F4 key -- open Windows Snipping Tool, start snip.
 F4::
-	Run, "C:\Windows\Sysnative\SnippingTool.exe"
-	WinWait Snipping Tool,, 3
-	Sleep 20
-	Send !n
+	if WinActive("ahk_exe EXCEL.EXE")
+		SendPlay {F4}
+	else {
+		if FileExist("C:\Windows\Sysnative\SnippingTool.exe") ; Works on physical machines (not VMs)
+			Snip := "C:\Windows\Sysnative\SnippingTool.exe"
+		else if FileExist("C:\Windows\System32\SnippingTool.exe") ; Works in VMs (not consistently on physical machines)
+			Snip := "C:\Windows\System32\SnippingTool.exe"
+		if (Snip) {
+			Run, %Snip%
+			WinWait, Snipping Tool,, 3
+			Sleep 50
+			Send !n ; Start new snip
+		}
+	}
 return
 ; If the tool is already open, it just starts a new snip from there.
 

@@ -1,10 +1,14 @@
 ; Begin auto-execute section
 
-#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
-#SingleInstance, Force ; Reloading the script replaces the previous running script without a prompt.
-; #Warn ; Enable warnings to assist with detecting common errors.
-SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
-SetDefaultMouseSpeed, 0
+; Optional things often used in new/simple scipts:
+#NoEnv				; Avoids checking empty variables to see if they are environment variables.
+#SingleInstance, Force		; Reloading the script replaces the previous running script without a prompt.
+SendMode, Input			; For anything using Send, Input is a preferred method because of its superior speed and reliability.
+SetBatchLines, -1		; Make the script run at maximum speed. If you need the script to use less CPU, remove this or comment it out.
+SetWorkingDir, %A_ScriptDir%	; Force the script to use its own folder as its working directory when checking for files or folders.
+#Persistent 			; A script will be automaticaly persistent (and this isn't necessary) if it contains any hotkey, hotstring, or gui.
+SetDefaultMouseSpeed, 0		; For anything that moves the mouse, make the mouse move instant.
+; #Warn 			; Enable warnings to assist with detecting common errors.
 
 ; End auto-execute section
 

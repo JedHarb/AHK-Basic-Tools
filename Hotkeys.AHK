@@ -33,8 +33,12 @@ F4::
 return
 ; If the tool is already open, it just starts a new snip from there.
 
-F2::Click % GetKeyState("LButton") ? "Up" : "Down" ; F2 clicks down the mouse. Press again to release click (drag and drop)
-F3::Click % " right " (GetKeyState("RButton") ? "Up" : "Down") ; Same thing for F3 and right click.
+; Toggle the Windows "preview pane" on or off in Windows 10
+F7::
+	if WinActive("ahk_exe explorer.exe") {
+		Send, {AltDown}{AltUp}vp
+	}
+return
 
 ; My wireless mouse is far from the receiver. It occasionally (and instantly) disconnects and reconnects.
 ; When this happens, my drag and drop gets interrupted. We can reduce the interruptions with this hotkey:
@@ -59,4 +63,8 @@ LButton::
 	Click, Up
 Return
 
-; More to come....
+; I don't use these anymore, but I wanted to save the one-liners in case I might use them for something else.
+F2::Click % GetKeyState("LButton") ? "Up" : "Down" ; F2 clicks down the mouse. Press again to release click (drag and drop)
+F3::Click % " right " (GetKeyState("RButton") ? "Up" : "Down") ; Same thing for F3 and right click.
+
+; Maybe I'll add more someday...

@@ -1,21 +1,23 @@
 ; Begin auto-execute section
 
-; Optional things often used in new/simple scipts:
-#NoEnv				; Avoids checking empty variables to see if they are environment variables.
-#SingleInstance, Force		; Reloading the script replaces the previous running script without a prompt.
-SendMode, Input			; For anything using Send, Input is a preferred method because of its superior speed and reliability.
-SetBatchLines, -1		; Make the script run at maximum speed. If you need the script to use less CPU, remove this or comment it out.
-SetWorkingDir, %A_ScriptDir%	; Force the script to use its own folder as its working directory when checking for files or folders.
-#Persistent 			; A script will be automaticaly persistent (and this isn't necessary) if it contains any hotkey, hotstring, or gui.
-SetDefaultMouseSpeed, 0		; For anything that moves the mouse, make the mouse move instant.
-^!r::Reload  			; Press Ctrl+Alt+R to restart this script.
-; #Warn 			; Enable warnings to assist with detecting common errors.
+	; Optional things often used in new/simple scipts:
+	#NoEnv				; Avoids checking empty variables to see if they are environment variables.
+	#SingleInstance, Force		; Reloading the script replaces the previous running script without a prompt.
+	SendMode, Input			; For anything using Send, Input is a preferred method because of its superior speed and reliability.
+	SetBatchLines, -1		; Make the script run at maximum speed. If you need the script to use less CPU, remove this or comment it out.
+	SetWorkingDir, %A_ScriptDir%	; Force the script to use its own folder as its working directory when checking for files or folders.
+	#Persistent 			; A script will be automaticaly persistent (and this isn't necessary) if it contains any hotkey, hotstring, or gui.
+	SetDefaultMouseSpeed, 0		; For anything that moves the mouse, make the mouse move instant.
+	#Warn	 			; Enable warnings to assist with detecting common errors.
 
 ; End auto-execute section
 
+^r::Reload  			; Press Ctrl+R to restart this script at any time.
+^Esc::ExitApp			; Press Ctrl+Esc to exit this scipt at any time.
+
 ~LButton & RButton::Send, {Enter}{LButton Up} ; While holding left click, do a right click -- press Enter with your mouse!
 
-; F4 key -- open Windows Snipping Tool, start snip.
+; F4 -- open Windows Snipping Tool, start snip. If the tool is already open, it just starts a new snip from there.
 F4::
 	if WinActive("ahk_exe EXCEL.EXE")
 		SendPlay {F4}
@@ -32,16 +34,15 @@ F4::
 		}
 	}
 return
-; If the tool is already open, it just starts a new snip from there.
 
-; Toggle Windows 10 File Explorer preview pane on/off
+; F7 -- Toggle Windows 10 File Explorer preview pane on/off
 F7::
 	if WinActive("ahk_exe explorer.exe") {
 		Send, {AltDown}{AltUp}vp
 	}
 return
 
-; Set all cells in the current excel worksheet to Text format
+; F3 -- Set all cells in the current Excel worksheet to Text format
 F3::
 	if WinActive("ahk_exe EXCEL.EXE"){
 		Send, ^a

@@ -11,7 +11,8 @@
 	SetDefaultMouseSpeed, 0		; For anything that moves the mouse, make the mouse move instant.
 	#Warn	 			; Enable warnings to assist with detecting common errors.
 
-; End auto-execute section
+return ; End auto-execute section
+; The script will continue responding to hotkeys, hotstrings, GUI events, custom menu items, and timers. In order to run any other "run at startup" scripting, it must be added to the Auto-Execute section above.
 
 ^r::Reload  	; Press Ctrl+R to restart this script at any time.
 ^Esc::ExitApp	; Press Ctrl+Esc to exit this scipt at any time.

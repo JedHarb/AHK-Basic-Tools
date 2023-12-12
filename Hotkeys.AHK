@@ -1,3 +1,4 @@
+; All done in V1.1, but I assume they basically all work in V2.
 ; Begin auto-execute section
 
 	; Optional things often used in new/simple scipts:
@@ -21,7 +22,7 @@
 
 ; F4 -- open Windows Snipping Tool, start snip. If the tool is already open, it just starts a new snip from there.
 F4::
-	if WinActive("ahk_exe EXCEL.EXE")
+	if WinActive("ahk_exe EXCEL.EXE") ; F4 has other functions in Excel, so if Excel is the active Window, just press F4 in it instead of starting a snip.
 		SendPlay {F4}
 	else {
 		if FileExist("C:\Windows\Sysnative\SnippingTool.exe") ; Works on physical machines (not VMs)

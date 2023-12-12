@@ -12,7 +12,8 @@
 	#Warn	 			; Enable warnings to assist with detecting common errors.
 
 return ; End auto-execute section
-; The script will continue responding to hotkeys, hotstrings, GUI events, custom menu items, and timers. In order to run any other "run at startup" scripting, it must be added to the Auto-Execute section above.
+; To have any other scripting run immediately when the script starts (rather than being triggered by other events like hotkeys or timers), it must be added to the Auto-Execute section above.
+; The rest of the script will continue responding to hotkeys, hotstrings, GUI events, custom menu items, and timers below.
 
 ^r::Reload  	; Press Ctrl+R to restart this script at any time.
 ^Esc::ExitApp	; Press Ctrl+Esc to exit this scipt at any time.

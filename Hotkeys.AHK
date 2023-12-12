@@ -12,10 +12,12 @@
 
 ; End auto-execute section
 
-^r::Reload  			; Press Ctrl+R to restart this script at any time.
-^Esc::ExitApp			; Press Ctrl+Esc to exit this scipt at any time.
+^r::Reload  	; Press Ctrl+R to restart this script at any time.
+^Esc::ExitApp	; Press Ctrl+Esc to exit this scipt at any time.
 
 ~LButton & RButton::Send, {Enter}{LButton Up} ; While holding left click, do a right click -- press Enter with your mouse!
+
+^t::Send, %Clipboard% ; Ctrl+T -- an alternate paste for some websites that don't allow traditional paste.
 
 ; F4 -- open Windows Snipping Tool, start snip. If the tool is already open, it just starts a new snip from there.
 F4::
@@ -42,8 +44,8 @@ F7::
 	}
 return
 
-; F3 -- Set all cells in the current Excel worksheet to Text format
-F3::
+; F7 -- Set all cells in the current Excel worksheet to Text format
+F7::
 	if WinActive("ahk_exe EXCEL.EXE"){
 		Send, ^a
 		Send, {AltDown}{AltUp}hnte{Enter}

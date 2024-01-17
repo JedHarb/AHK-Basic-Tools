@@ -32,7 +32,7 @@ F4::
 		else if FileExist("C:\Windows\System32\SnippingTool.exe") ; Works in VMs (not consistently on physical machines)
 			Snip := "C:\Windows\System32\SnippingTool.exe"
 		if (Snip) {
-			Run, %Snip%
+			Run, %Snip% ; If compiled to 64 bit exe, this could just be "Run, snippingtool" and not need all the above if statements...
 			WinWait, Snipping Tool,, 3
 			Sleep 50
 			Send !n ; Start new snip
